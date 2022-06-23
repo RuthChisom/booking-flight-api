@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "flight to canada",
+    "time": "1pm",
+    "price": 26000,
+    "date": "26-06-2022"
+  },
+  {
+    "id": 2,
+    "title": "flight to Nigeria",
+    "time": "12pm",
+    "price": 15000,
+    "date": "11-07-2022"
+  },
+  {
+    "id": 3,
+    "title": "flight to UK",
+    "time": "10am",
+    "price": 40000,
+    "date": "23-07-2022"
+  }
+]
