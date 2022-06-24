@@ -25,6 +25,8 @@ exports.singleFlight = (req, res) => {
 exports.newFlight = (req, res) => {
     let userInput = req.body.flight;
     if(userInput){
+        userInput.date = new Date().toLocaleDateString();
+        userInput.time = new Date().toLocaleTimeString();
         flights.push(userInput);
         let stringedData = JSON.stringify(flights, null, 2); //stringify the json data and re-write the json file
         fs.writeFile('models/flights.json', stringedData, function(err){
