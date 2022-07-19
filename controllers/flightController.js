@@ -31,13 +31,14 @@ exports.newFlight = (req, res) => {
         let stringedData = JSON.stringify(flights, null, 2); //stringify the json data and re-write the json file
         fs.writeFile('models/flights.json', stringedData, function(err){
             if(err){
-                return res.status(500).json({message: err}) ;//internal server error
+                console.error({message: err}) ;//internal server error
+                return res.status(500).json({message : "Flight Creation Failed!!"});
             }
         })
         //send response to client
         return res.status(200).json({message : "New Flight Added!!"});
     }
-    else return res.status(201).json({message: 'Please enter an object values in the body'})
+    else return res.status(201).json({message: 'Please enter a "flight" object value in the body'})
 }
 
 //update a flight
@@ -60,7 +61,8 @@ exports.updateFlight = (req, res) => {
             let stringedData = JSON.stringify(flights, null, 2); //stringify the json data
             fs.writeFile('models/flights.json', stringedData, function(err){
             if(err){
-                return res.status(500).json({message: err}) ;//internal server error
+                console.error({message: err}) ;//internal server error
+                return res.status(500).json({message : "Flight Update Failed!!"});
             }
         })
             return res.status(200).json({message: 'Flight Updated'});
@@ -83,7 +85,8 @@ exports.deleteFlight = (req, res) => {
         //update the json file
         fs.writeFile('models/flights.json', stringedData, function(err){
             if(err){
-                return res.status(500).json({message: err}) ;//internal server error
+                console.error({message: err}) ;//internal server error
+                return res.status(500).json({message : "Flight NDeletion Failed!!"});
             }
         })
         return res.status(200).json({message: 'Flight Deleted'});
